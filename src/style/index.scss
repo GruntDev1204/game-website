@@ -1,0 +1,14 @@
+@import './object/object.scss';
+@import './object/effect.scss';
+@import './reset.scss';
+@import './component/header.scss';
+@import 'component/content.scss';
+@import 'component/footer.scss';
+
+
+//dùng chung
+.container{
+    margin: 0 auto;
+    padding:15px 0;
+    max-width: 1550px;
+}

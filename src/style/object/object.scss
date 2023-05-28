@@ -1,0 +1,70 @@
+//font-color 
+$color-1 : #FFFFFF;
+$color-2 : #4A90E2;
+$color-3 : #D9D9D9;
+
+$color-5 : #d9d9d9;
+
+$color-6 : #161616;
+
+
+//background
+$bg-1 : #000000;
+
+$bg-2 : #3F475C;
+
+$bg-3 : #1D222A;
+
+$def : 100px;
+$def-font-weight:100;
+$full-width :100%;
+$full-height :100%;
+
+$end-row : flex-end;
+$row-center : center;
+$row-start : flex-start;
+
+@mixin full_size(){
+    height: $full-height;
+    width: $full-width;
+}
+@mixin constW(){
+    width: $full-width;
+    height: auto;
+    overflow-x: hidden;
+}
+@mixin no-size-change{
+    width: $full-width;
+    height: 100vh;
+    overflow: hidden;
+}
+@mixin drt_row(){
+    display: flex;
+}
+@mixin row_center(){
+    align-items: center;
+    @include drt_row();
+}
+@mixin drt_col(){
+    display: flex;
+    flex-direction: column;
+}
+@mixin col_start(){
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include drt_col();
+}
+
+@mixin pointer(){
+    cursor: pointer;
+}
+
+input{
+    outline: none;
+    border: none;
+}
+img{
+    width: $full-width;
+    height: $full-height;
+}
+    

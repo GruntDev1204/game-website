@@ -1,0 +1,80 @@
+.header-area{
+    @include row_center;
+    height: 0.4*$def;
+    @include pointer();
+    .Header-left{
+        @include row_center;
+        width: 0.1*$full-width;
+        font-weight: 7*$def-font-weight;
+        font-size: 0.45*$def;
+        font-family: 'Popins';
+       h3{
+        color: $color-2;
+       }
+       p{
+        color: $color-1;
+       }
+    }
+    .Header-right{
+        width: 0.2*$full-width;
+        text-align: end;
+        font-size: 0.2*$def;
+        line-height: 0.3*$def;
+        .list-right{
+            width: $full-width;
+            justify-content: $row-start;
+            font-family: Arial, Helvetica, sans-serif;
+
+            @include row_center;
+            li:not(:first-child){
+                margin-left: 0.3*$def;
+                color: $color-3;
+            }
+            li:hover{
+                color: $color-1;
+            }
+        }
+        .form-input-search{
+            @include row_center();
+            position: absolute;
+            width: 2.8*$def;
+            background-color: $color-5;
+            height: 0.3*$def;
+            border-radius: 0.1*$def;
+            color: $bg-1;
+            top: 0.65*$def ;
+            right: 2.2*$def;
+            input{
+                height: 0.83*$full-height;
+                border-radius: 0.1*$def;
+                width: $full-width;
+                font-size: 0.2*$def;
+                line-height: 0.25*$def;
+                background-color: $color-6;
+            }
+            i{
+                color: $bg-1;
+                margin-right: 0.1*$def;
+            }
+
+        }
+    }
+    .Header-center{
+        line-height: 0.3*$def;
+        width: 0.7*$full-width;
+        font-size: 0.2*$def;
+        .list-center{
+            @include row_center;
+            justify-content: $row-center;
+            font-family: Arial, Helvetica, sans-serif;
+            li{
+                margin-left: 0.5*$def;
+                color: $color-3;
+            }
+            li:hover{
+                color: $color-1;
+            }
+        }
+
+    }
+}
