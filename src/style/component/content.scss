@@ -1,0 +1,306 @@
+.Content-area {
+    @include constW();
+    background-color: #232531;
+    position: relative;
+
+    .menu { 
+        @include pointer;
+        top: 100px;
+        left: 50px;
+        position: fixed;
+        font-size: 30px;
+        z-index: 9999;
+        border-radius: 50%;
+        background-color: rgb(3, 3, 3);
+        padding: 16px 20px;
+       
+    }
+    .upto { 
+        @include pointer;
+        bottom: 60px;
+        right: 70px;
+        position: fixed;
+        font-size: 30px;
+        z-index: 9999;
+        border: 1px solid ;
+        border-radius: 50%;
+        background-color: #4e8fda00;
+        padding: 6px 10px;
+        &:hover{
+            background-color: #4A90E2;
+            border: 1px solid #4A90E2;
+        }
+    }
+
+    .poster {
+        @include no-size-change;
+        height: 93vh;
+        margin-bottom: 0.7*$def;
+        position: relative;
+        i{
+            position: absolute;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 5px;
+            color: #161616;
+            @include pointer;
+        }
+    }
+
+    .hot-area {
+        height: 8.1*$def;
+        width: $full-width;
+        @include pointer();
+        @include drt_row;
+
+        .hot-area-left {
+            position: relative;
+            width: calc(0.28*$full-width - 10px);
+            @include col_start;
+            height: $full-height;
+
+            .content-product {
+                @include full_size;
+
+                .action-product {
+                    bottom: 0;
+                    position: absolute;
+                    width: $full-width;
+                    line-height: 0.4*$def;
+                    @include drt_row;
+
+                    * {
+                        font-size: 0.3*$def;
+                    }
+
+                }
+            }
+        }
+
+        .hot-area-right {
+            width: calc(0.7*$full-width - 10px);
+            margin-left: 20px;
+            height: $full-height;
+
+            .content-product:not(:first-child) {
+                margin-top: 25px;
+            }
+
+            .content-product {
+                height: 0.48*$full-height;
+                position: relative;
+
+                .action-product {
+                    bottom: 0;
+                    position: absolute;
+                    width: $full-width;
+                    line-height: 0.4*$def;
+                    @include drt_row;
+
+                    * {
+                        font-size: 0.3*$def;
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    .ARR-area {
+        width: $full-width;
+        font-size: 0.3*$def;
+        margin-bottom: 0.5*$def;
+        margin-top: 0.5*$def;
+
+        @include pointer;
+
+        .ARR-area-head {
+            @include drt_row;
+            justify-content: space-between;
+
+            .menu-skip {
+                margin-right: 30px;
+                @include drt_row;
+
+                p:not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .ARR-area-body {
+            width: $full-width;
+            overflow: hidden;
+         
+
+            .list-ARR {
+                @include drt_row;
+                width: $full-width;
+                margin-top: 0.25*$def;
+                flex-wrap: nowrap;
+
+                li {
+                    height: auto;
+                    width: 0.23*$full-width;
+                    flex: 0 0 auto;
+                    margin-bottom: 20px;
+                    transition: transform 0.3s ease;
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+
+                }
+
+                li:not(:first-child) {
+                    margin-left: 35px;
+                }
+            }
+        }
+
+        .ARR-area-foot {
+            @include drt_row;
+            justify-content: center;
+            top: 0;
+            font-size: 0.3*$def;
+        }
+
+    }
+
+    .EXT-area {
+        width: $full-width;
+        background-color: #11141D;
+        padding: 30px 40px;
+        border: 1px solid #11141D;
+        text-align: start;
+        position: relative;
+        .EXT-title{
+            font-size: 0.4*$def;
+            line-height: 0.6*$def;
+        }
+        .EXT-content{
+            margin-top: 0.3*$def;
+            @include drt_row;
+            height:7.5*$def;
+            @include pointer;
+            .Content-left{
+                width: 0.44*$full-width;
+                margin-right: 20px;
+                height: 100%;
+
+            }
+            .Content-right{
+                width: 0.48*$full-width;
+                height: 100%;
+                @include drt_row;
+                flex-wrap: wrap;
+                .list-EXT {
+                    width: 0.48*$full-width;
+                    height:49% ;
+                }
+                .list-EXT:not(:nth-child(2n+1)){
+                    margin-left: 15px;
+                }
+                .list-EXT:not(:nth-child(1)):not(:nth-child(2)){
+               
+                  margin-top: 15px;
+                }
+
+            }
+         
+
+        }
+
+
+    }
+
+    .mc-area{
+        padding: 20px 0px;
+        background-color: #212330;
+        h3{
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+        .list-mc{
+            width: 100%;
+            @include drt_row;
+            height: 400px;
+            margin-bottom: 20px;
+            li{
+                width: 15%;
+                @include pointer;
+                img{
+                    border-radius: 10px;
+                    transition: transform 0.3s ease;
+                }
+                img:hover{
+                    transform: scaleY(1.05);
+                }
+            }
+            li:not(:first-child){
+                margin-left: 25px;
+            }
+        }
+
+    }
+}
+
+
+.price-EXT{
+    position: absolute;
+    padding: 15px;
+    background-color: aqua;
+    font-size: 25px;
+}
+.blue {
+    background-color: $color-2 ;
+    border: 1px solid $color-2;
+    width: 45%;
+    @include row_center;
+    justify-content: center;
+    border-style: solid;
+    border-right: none;
+}
+
+.normal {
+    width: 60%;
+    @include row_center;
+    justify-content: center;
+    background-color: $color-6;
+}
+
+
+.product-card {
+    width: 100%;
+    border: 1px solid #161616;
+    background-color: #161616;
+    border-radius: 4px;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product-card .product-title {
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.product-card .product-price {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #888;
+}
+
+
+.Menu{
+    position: fixed;
+    z-index: 9999;
+    top: 100px;
+    left: 120px;
+}

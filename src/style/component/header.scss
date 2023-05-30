@@ -1,0 +1,190 @@
+.header-area {
+    @include row_center;
+    height: 0.4*$def;
+    @include pointer();
+
+    .Header-left {
+        @include row_center;
+        width: 0.1*$full-width;
+        font-weight: 7*$def-font-weight;
+        font-size: 0.45*$def;
+        font-family: 'Popins';
+
+        h3 {
+            color: $color-2;
+        }
+
+        p {
+            color: $color-1;
+        }
+    }
+
+    .Header-right {
+        width: 0.2*$full-width;
+        text-align: end;
+        font-size: 0.2*$def;
+        line-height: 0.3*$def;
+
+        .list-right {
+            width: $full-width;
+            justify-content: $row-start;
+            font-family: Arial, Helvetica, sans-serif;
+            @include row_center;
+
+            li:not(:first-child) {
+                margin-left: 0.3*$def;
+                color: $color-3;
+            }
+
+            li:hover {
+                color: $color-1;
+            }
+        }
+
+        .form-input-search {
+            @include row_center();
+            position: fixed;
+            z-index: 9999;
+            width: 2.8*$def;
+            background-color: $color-5;
+            height: 0.3*$def;
+            border-radius: 0.07*$def;
+            color: $color-1;
+            top: 0.65*$def ;
+            right: 2.2*$def;
+
+            input {
+                height: 0.83*$full-height;
+                border-radius: 0.1*$def;
+                width: $full-width;
+                font-size: 0.17*$def;
+                line-height: 0.5*$def;
+                background-color: $bg-2;
+                padding: 5px 10px;
+                color: $color-1;
+                z-index: 9999;
+                top: 50%;
+            }
+
+        }
+    }
+
+    .Header-center {
+        line-height: 0.3*$def;
+        width: 0.7*$full-width;
+        font-size: 0.2*$def;
+
+        .list-center {
+            @include row_center;
+            justify-content: $row-center;
+            font-family: Arial, Helvetica, sans-serif;
+
+            li {
+                margin-left: 0.5*$def;
+                color: $color-3;
+            }
+
+            li:hover {
+                color: $color-1;
+            }
+        }
+
+    }
+
+    .list-Prf {
+        position: fixed;
+        font-size: 15px;
+        z-index: 9999;
+        top: 50px;
+        right: 300px;
+        width: 120px;
+
+        li:not(:first-child) {
+            margin-bottom: 5px;
+        }
+
+        li:not(:last-child) {
+            border-bottom: 1px solid;
+        }
+
+        li {
+            background-color: #333;
+            padding: 10px;
+            width: 100%;
+            text-align: start;
+        }
+    }
+
+    .Cart {
+        z-index: 9999;
+        position: fixed;
+        width: 700px;
+
+        top: 50px;
+        right: 20px;
+        background-color: #030f258c;
+        padding: 10px 15px;
+        border-radius: 10px;
+
+        .Title-Cart {
+            color: #fdfdfd;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: start;
+        }
+
+        .Cart-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 70%;
+            text-align: start;
+            border-bottom: 1px solid;
+            margin-bottom: 20px;
+        }
+
+        .Cart-list li {
+            margin-bottom: 5px;
+            background-color: #55555567;
+            border-radius: 10px;
+            padding: 5px 0px ;
+            color: #f7c9c9;
+            width: 100%;
+            height: 100px;
+            @include drt_row;
+            align-items: flex-start;
+                margin-bottom: 10px;
+            .line-cart{
+                width: 60%;
+                margin-left: 20px;
+            }
+            img{
+                width: 40%;
+                border-radius: 10px;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+           
+
+        }
+
+        .btn-sumbit {
+            background-color: #333;
+            color: #f3efef;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+
+        }
+
+        .btn-sumbit:hover {
+            background-color: #555;
+        }
+        .close{
+            margin-left: 10px;
+        }
+    }
+
+}
