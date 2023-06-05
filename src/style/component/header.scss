@@ -1,100 +1,68 @@
 .header-area {
     @include row_center;
-    height: 0.4*$def;
+    @include sizeOption(0.5*$def , $full-width);
     @include pointer();
+    @include position(2);
+    @include locationOption((top,0) , (right,0) , (left,0));
+    @include padding_option(top , 0.1);
+    @include padding_option(bottom , 0.1);
+    @include color_custom($color-5 , $bg-3);
 
     .Header-left {
         @include row_center;
-        width: 0.1*$full-width;
-        font-weight: 7*$def-font-weight;
-        font-size: 0.45*$def;
-        font-family: 'Popins';
-
+         @include font_option(0.4,0.4);
+        @include font-weight(7);
         h3 {
-            color: $color-2;
+            @include color_custom($color-2 , $bg-3);
         }
-
         p {
-            color: $color-1;
+            @include color_custom($color-1 , $bg-3);
         }
     }
 
     .Header-right {
-        width: 0.2*$full-width;
-        text-align: end;
-        font-size: 0.2*$def;
-        line-height: 0.3*$def;
-
+        @include sizeOption(auto, 0.2*$full-width);
+        @include font_option(0.17,0.3);
         .list-right {
-            width: $full-width;
-            justify-content: $row-start;
-            font-family: Arial, Helvetica, sans-serif;
             @include row_center;
 
             li:not(:first-child) {
-                margin-left: 0.3*$def;
-                color: $color-3;
+               @include Margin_option(left,0.25);
+                @include color_custom($color-3 , $bg-3);
             }
 
             li:hover {
-                color: $color-1;
+                @include color_custom($color-1 , $bg-3);
             }
         }
 
-        .form-input-search {
-            @include row_center();
-            position: fixed;
-            z-index: 9999;
-            width: 2.8*$def;
-            background-color: $color-5;
-            height: 0.3*$def;
-            border-radius: 0.07*$def;
-            color: $color-1;
-            top: 0.65*$def ;
-            right: 2.2*$def;
-
-            input {
-                height: 0.83*$full-height;
-                border-radius: 0.1*$def;
-                width: $full-width;
-                font-size: 0.17*$def;
-                line-height: 0.5*$def;
-                background-color: $bg-2;
-                padding: 5px 10px;
-                color: $color-1;
-                z-index: 9999;
-                top: 50%;
-            }
-
-        }
+     
     }
 
     .Header-center {
-        line-height: 0.3*$def;
-        width: 0.7*$full-width;
-        font-size: 0.2*$def;
+       @include sizeOption(auto , 0.7*$full-width);
+        @include font_option(0.17,0.2);
 
         .list-center {
             @include row_center;
-            justify-content: $row-center;
-            font-family: Arial, Helvetica, sans-serif;
-
             li {
-                margin-left: 0.5*$def;
-                color: $color-3;
+                @include color_custom($color-3 , $bg-3);
+                @include Margin_option(left,0.7);
             }
 
             li:hover {
-                color: $color-1;
+                @include color_custom($color-1 , $bg-3);
             }
         }
 
     }
 
+
+    //phần chưa làm
+    //profile
     .list-Prf {
-        position: fixed;
+        @include position(2);
         font-size: 15px;
-        z-index: 9999;
         top: 50px;
         right: 300px;
         width: 120px;
@@ -115,76 +83,121 @@
         }
     }
 
+    //giỏ hàng
     .Cart {
-        z-index: 9999;
-        position: fixed;
-        width: 700px;
+       @include position(2);
+        @include sizeOption(fit-content,fit-content);
+       @include locationOption((top , 80px) , (right,20px));
+       @include color_custom(null , $bg-3);
+       @include customPadding(10px, 15px);
+        border-radius: $border-goc;
+                  
 
-        top: 50px;
-        right: 20px;
-        background-color: #030f258c;
-        padding: 10px 15px;
-        border-radius: 10px;
-
+        //title 
         .Title-Cart {
-            color: #fdfdfd;
-            font-size: 20px;
-            margin-bottom: 10px;
-            text-align: start;
+           @include color_custom($color-1 , null);
+            @include font_option(0.3 , 0.3);
+           @include Margin_option(bottom ,0.1);
+           @include align_Text(start);
+            
         }
+         
 
+        //Cart-content
         .Cart-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            height: 70%;
-            text-align: start;
-            border-bottom: 1px solid;
-            margin-bottom: 20px;
+            @include sizeOption(fit-content );
+            @include border_option(bottom , null ,1px);
+            @include Margin_option(bottom , 0.2);
+
+            li {
+                @include color_custom($color-1 , $bg-5);
+                @include position(0);
+                @include customPadding(10px , 15px);
+                @include  border_option(radius , null , 10px);
+                @include sizeOption(110px, 500px);
+                @include drt_option(flex , 0 , null, flex-start) ;
+                @include Margin_option(bottom, 0.15);
+    
+                .button-quantity {
+                    @include  sizeOption(100% , 50px);
+                    @include drt_option(flex, 1 , center ,center );
+                    @include color_custom($color-6 ,$color-1);
+                    @include border_option(null , $color-1 , 1px);
+                   @include  border_option(radius , null , 5px);
+                
+                    .quantity {
+                        @include padding_option(0 , 0.1);
+                        @include font_option(0.25,0.3);
+                    }
+                }
+    
+                .close-cart{
+                 @include sizeOption($full-height);
+                   @include drt_option(flex,1,center,null);
+                   @include color_custom($color-4 , null);
+                    @include font_option(0.5, 0.5);
+                    @include zoomIn;
+                }
+                .line-cart{
+                    @include sizeOption(auto ,  0.55*$full-width);
+                  @include Margin_option(left,0.15);
+                    @include drt_option(flex,1,center,flex-start);
+                    p:first-child{
+                        @include font_option(0.37, 0.5);
+                        @include font-weight(7);
+                    }
+                }
+                img{
+                    @include sizeOption($full-height, $def*1.1);
+                    @include Margin_option(left , 0.15);
+                    @include border_option(radius , null , 0.1*$def);
+                }
+    
+            }
+    
         }
 
-        .Cart-list li {
-            margin-bottom: 5px;
-            background-color: #55555567;
-            border-radius: 10px;
-            padding: 5px 0px ;
-            color: #f7c9c9;
-            width: 100%;
-            height: 100px;
-            @include drt_row;
-            align-items: flex-start;
-                margin-bottom: 10px;
-            .line-cart{
-                width: 60%;
-                margin-left: 20px;
-            }
-            img{
-                width: 40%;
-                border-radius: 10px;
-                margin-right: 10px;
-                margin-left: 10px;
-            }
-           
-
-        }
-
+        //vùng nút ấn
         .btn-sumbit {
-            background-color: #333;
-            color: #f3efef;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 10px;
-
+            @include color_custom($color-1 , $bg-5);
+            @include border_option(null , null , none);
+            @include customPadding(0.1*$def , 0.2*$def);
+            @include pointer();
+            @include border_option(radius , null , 0.05*$def);
+           @include Margin_option(top , 0.1);
+           @include Margin_option(bottom , 0.1);
+           @include Margin_option(right , 0.1);
         }
-
         .btn-sumbit:hover {
-            background-color: #555;
+            background-color: $color-6;
         }
-        .close{
-            margin-left: 10px;
-        }
+        
     }
 
+    //form   
+    .form-input-search {
+        @include row_center();
+        @include position(2);
+       width: 2.8*$def;
+       background-color: $color-5;
+       height: 0.3*$def;
+       border-radius: 0.07*$def;
+       color: $color-1;
+       top: 0.65*$def ;
+       right: 2.2*$def;
+
+       input {
+           height: 0.83*$full-height;
+           border-radius: 0.1*$def;
+           width: $full-width;
+           font-size: 0.17*$def;
+           line-height: 0.5*$def;
+           background-color: $bg-2;
+           padding: 5px 10px;
+           color: $color-1;
+           z-index: 9999;
+           top: 50%;
+       }
+   }
 }
+

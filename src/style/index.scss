@@ -4,11 +4,24 @@
 @import './component/header.scss';
 @import 'component/content.scss';
 @import 'component/footer.scss';
+@import 'component/loginForm.scss';
+@import 'component/signupform.scss';
+
 
 
 //dùng chung
-.container{
+.container {
     margin: 0 auto;
-    padding:15px 0;
-    max-width: 1550px;
+    padding: 15px 0;
+    max-width: 1400px;
 }
+.fit{
+    @include sizeOption($full-height,$full-width);
+    @include row_center;
+}
+
+a {
+    all: unset;
+}
+
+

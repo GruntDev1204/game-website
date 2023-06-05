@@ -1,126 +1,69 @@
 .Content-area {
     @include constW();
-    background-color: #232531;
-    position: relative;
+    @include color_custom(null, $bg-6);
+    @include position(0);
 
-    .menu { 
-        @include pointer;
-        top: 100px;
-        left: 50px;
-        position: fixed;
-        font-size: 30px;
-        z-index: 9999;
-        border-radius: 50%;
-        background-color: rgb(3, 3, 3);
-        padding: 16px 20px;
-       
-    }
-    .upto { 
-        @include pointer;
-        bottom: 60px;
-        right: 70px;
-        position: fixed;
-        font-size: 30px;
-        z-index: 9999;
-        border: 1px solid ;
-        border-radius: 50%;
-        background-color: #4e8fda00;
-        padding: 6px 10px;
-        &:hover{
-            background-color: #4A90E2;
-            border: 1px solid #4A90E2;
-        }
-    }
-
+    //ảnh trang chủ
     .poster {
+        @include locationOption((top, 70px));
         @include no-size-change;
-        height: 93vh;
-        margin-bottom: 0.7*$def;
-        position: relative;
-        i{
-            position: absolute;
-            font-size: 20px;
-            font-weight: 700;
-            padding: 5px;
-            color: #161616;
+        @include position(0);
+
+        i {
+            @include position(1);
+            @include font_option(0.3, 0.3);
+            @include font-weight(7);
+            @include locationOption((right, 10px), (top, 5px));
+            @include color_custom($bg-6 , null);
             @include pointer;
         }
     }
 
-    .hot-area {
-        height: 8.1*$def;
-        width: $full-width;
-        @include pointer();
-        @include drt_row;
+    //hot-new  <done>
+    .hot-new {
+        @include sizeOption(auto, $full-width);
+        @include Margin_option(top, 0.85);
+        @include Margin_option(bottom, 0.3);
 
-        .hot-area-left {
-            position: relative;
-            width: calc(0.28*$full-width - 10px);
-            @include col_start;
-            height: $full-height;
+        .hot-body {
+            overflow: hidden;
 
-            .content-product {
-                @include full_size;
+            .list-hot {
+                @include drt_option(flex, 0, null, null);
 
-                .action-product {
-                    bottom: 0;
-                    position: absolute;
-                    width: $full-width;
-                    line-height: 0.4*$def;
-                    @include drt_row;
+                li {
+                    @include position(0);
+                    @include sizeOption(auto, 0.23*$full-width);
+                    @include pointer;
+                }
 
-                    * {
-                        font-size: 0.3*$def;
-                    }
-
+                li:not(:first-child) {
+                    @include Margin_option(left, 0.35);
                 }
             }
+
         }
 
-        .hot-area-right {
-            width: calc(0.7*$full-width - 10px);
-            margin-left: 20px;
-            height: $full-height;
-
-            .content-product:not(:first-child) {
-                margin-top: 25px;
-            }
-
-            .content-product {
-                height: 0.48*$full-height;
-                position: relative;
-
-                .action-product {
-                    bottom: 0;
-                    position: absolute;
-                    width: $full-width;
-                    line-height: 0.4*$def;
-                    @include drt_row;
-
-                    * {
-                        font-size: 0.3*$def;
-                    }
-
-                }
-            }
-        }
     }
 
 
+    //arrivals area
     .ARR-area {
         width: $full-width;
         font-size: 0.3*$def;
-        margin-bottom: 0.5*$def;
-        margin-top: 0.5*$def;
+        margin-bottom: $def;
+        margin-top: 0.6*$def;
 
         @include pointer;
 
         .ARR-area-head {
             @include drt_row;
-            justify-content: space-between;
+            justify-content: $space-row;
 
             .menu-skip {
-                margin-right: 30px;
+                margin-right: 0.3*$def;
+                font-size: 0.24*$def;
+                @include row_center;
                 @include drt_row;
 
                 p:not(:last-child) {
@@ -132,7 +75,6 @@
         .ARR-area-body {
             width: $full-width;
             overflow: hidden;
-         
 
             .list-ARR {
                 @include drt_row;
@@ -141,14 +83,11 @@
                 flex-wrap: nowrap;
 
                 li {
+                    position: relative;
                     height: auto;
                     width: 0.23*$full-width;
                     flex: 0 0 auto;
-                    margin-bottom: 20px;
-                    transition: transform 0.3s ease;
-                    &:hover{
-                        transform: scale(1.05);
-                    }
+                    @include zoomIn;
 
                 }
 
@@ -164,143 +103,212 @@
             top: 0;
             font-size: 0.3*$def;
         }
-
     }
 
+
+    //phụ kiện chơi game
     .EXT-area {
         width: $full-width;
-        background-color: #11141D;
-        padding: 30px 40px;
-        border: 1px solid #11141D;
-        text-align: start;
-        position: relative;
-        .EXT-title{
+        background-color: $bg-3;
+        @include align_Text(start);
+        @include position(0);
+
+        .EXT-title {
             font-size: 0.4*$def;
             line-height: 0.6*$def;
+            margin-top: 0.5*$def;
         }
-        .EXT-content{
-            margin-top: 0.3*$def;
-            @include drt_row;
-            height:7.5*$def;
-            @include pointer;
-            .Content-left{
-                width: 0.44*$full-width;
-                margin-right: 20px;
-                height: 100%;
 
+        .EXT-content {
+            @include drt_row;
+            height: 8*$def;
+            @include pointer;
+            padding-bottom: 0.5*$def;
+
+            .Content-left {
+                width: 0.5*$full-width;
+                margin-right: 0.2*$def;
+                height: $full-height;
+                @include zoomIn;
             }
-            .Content-right{
+
+            .Content-right {
                 width: 0.48*$full-width;
-                height: 100%;
+                height: $full-height;
                 @include drt_row;
                 flex-wrap: wrap;
+
                 .list-EXT {
                     width: 0.48*$full-width;
-                    height:49% ;
+                    height: 0.49*$full-height;
+                    @include zoomIn;
                 }
-                .list-EXT:not(:nth-child(2n+1)){
-                    margin-left: 15px;
+
+                .list-EXT:not(:nth-child(2n+1)) {
+                    margin-left: 0.15*$def;
                 }
-                .list-EXT:not(:nth-child(1)):not(:nth-child(2)){
-               
-                  margin-top: 15px;
+
+                .list-EXT:not(:nth-child(1)):not(:nth-child(2)) {
+                    margin-top: 0.15*$def;
                 }
 
             }
-         
+
 
         }
-
-
     }
 
-    .mc-area{
-        padding: 20px 0px;
-        background-color: #212330;
-        h3{
-            font-size: 35px;
-            margin-bottom: 20px;
+    //most choose <done>
+    .mc-area {
+        @include Margin_option(top, 0.15);
+        @include Margin_option(bottom, 0.15);
+        h3 {
+            @include font_option(0.35, 0.4);
+            @include Margin_option(bottom, 0.3);
         }
-        .list-mc{
-            width: 100%;
+
+        .list-mc {
             @include drt_row;
-            height: 400px;
-            margin-bottom: 20px;
-            li{
-                width: 15%;
+            @include sizeOption(4*$def , $full-width);
+            @include Margin_option(bottom, 0.3);
+
+            li {
+                @include sizeOption(null , 0.15*$full-width);
                 @include pointer;
-                img{
-                    border-radius: 10px;
-                    transition: transform 0.3s ease;
+                @include position(0);
+                @include zoomIn;
+               
+                .action-mc {
+                    @include sizeOption(0.3*$full-height , $full-width);
+                    @include padding_option(top,0.2);
+                    @include position(1);
+                    @include location_0(0);
+                    @include drt_option(flex, 0, center, flex-start);
+                    background: linear-gradient(to bottom, #000000, rgba(17, 16, 16, 0));
+                     @include font_option(0.3, 0.3);
+                     @include showInhover;
                 }
-                img:hover{
-                    transform: scaleY(1.05);
-                }
+
+              
             }
-            li:not(:first-child){
-                margin-left: 25px;
+
+            li:not(:first-child) {
+                @include Margin_option(left, 0.3);
             }
         }
 
     }
-}
 
 
-.price-EXT{
-    position: absolute;
-    padding: 15px;
-    background-color: aqua;
-    font-size: 25px;
-}
-.blue {
-    background-color: $color-2 ;
-    border: 1px solid $color-2;
-    width: 45%;
-    @include row_center;
-    justify-content: center;
-    border-style: solid;
-    border-right: none;
-}
+    //component riêng
+    //<done>
+    .price-EXT {
+        @include position(1);
+        @include padding_option(0, 0.15);
+        @include color_custom(null, $bg-4);
+       @include font_option(0.2,0.25);
+       @include font-weight(6);
+    }
+  
+    .Menu {
+        @include position(2);
+       @include locationOption((top,$def) , (left ,1.2*$def));
+    }
+    
+    //<done>
+    .upto {
+        @include pointer;
+        @include position(2);
+        @include font_option(0.3, 0.3);
+        @include border_option(radius, null , $border-tron);
+        @include border_option(null, null , 1px);
+        @include locationOption((bottom , 60px) , (right,70px));
+        @include customPadding(6px, 10px);
 
-.normal {
-    width: 60%;
-    @include row_center;
-    justify-content: center;
-    background-color: $color-6;
-}
+        &:hover {
+            @include color_custom(null , $bg-4);
+            @include border_option(null, $bg-4 , 1px);
+        }
+    }
+   
 
+    //done
+    .menu {
+        @include pointer;
+        @include locationOption((top, 93px), (left, 30px));
+        @include position(2);
+        @include font_option(0.3, 0.3);
+        @include border_option(radius, null , $border-tron);
+        @include color_custom(null , $bg-7);
+        @include customPadding(16px, 20px);
+    }
+     
 
-.product-card {
-    width: 100%;
-    border: 1px solid #161616;
-    background-color: #161616;
-    border-radius: 4px;
-    padding: 10px 0px;
-    text-align: center;
-}
+    //card sp <done>
+    .product-card {
+        @include sizeOption(5*$def , $full-width);
+        @include position(0);
+        .text-cart {
+            @include sizeOption(0.3*$full-height , $full-width);
+            @include position(1);
+            @include location_0(2);
+            @include drt_option(flex, 1, center, center);
+            background: linear-gradient(to top, #000000, rgba(17, 16, 16, 0));
 
-.product-card img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 4px;
-}
+            .product-title {
+                @include font_option(0.2, 0.25);
+                @include font-weight(6);
+                @include Margin_option(bottom, 0.15);
+                @include align_Text(center);
+            }
 
-.product-card .product-title {
-    margin-top: 12px;
-    font-size: 18px;
-}
+            .product-price {
+                @include drt_option(flex, 0, center, center);
 
-.product-card .product-price {
-    margin-top: 8px;
-    font-size: 16px;
-    color: #888;
-}
+                .price-sold {
+                    @include font-weight(7);
+                    @include font_option(0.22, 0.25);
+                    @include Margin_option(left, 0.35);
+                    @include color_custom($color-7 , null);
+                }
 
+                .price-no-sale {
+                    @include font-weight(7);
+                    @include font_option(0.25, 0.25);
+                    @include color_custom($color-7 , null);
+                }
 
-.Menu{
-    position: fixed;
-    z-index: 9999;
-    top: 100px;
-    left: 120px;
+                .sale-type {
+                    text-decoration: line-through;
+                    @include font_option(0.19, 0.25);
+                }
+            }
+        }
+        .details-card {
+            @include position(1);
+            @include location_0(2);
+            @include full-size;
+            @include drt_option(flex, 1, flex-start, flex-end);
+            @include showInhover;
+            background: linear-gradient(to bottom, #000000, rgba(17, 16, 16, 0));
+        }
+        .product-action {
+            @include font_option(0.3, 0.5);
+            @include drt_row;
+            @include Margin_option(top, 0.2);
+            @include Margin_option(right, 0.2);
+        }
+
+    }
+    .thin {
+        @include font-weight(1);
+        @include Margin_option(right, 0.3);
+    }
+    .thin:hover {
+        @include font-weight(9);
+        color: pink;
+    }
+    .fa-cart-plus:hover {
+        color: greenyellow;
+    }
 }

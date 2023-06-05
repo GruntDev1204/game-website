@@ -10,7 +10,7 @@ export default function HeaderCenter() {
                activeClass="active" to="top_new" spy={true}
                smooth={true}
                hashSpy={true}
-               offset={-50}
+               offset={0}
                duration={600}
                delay={0}>
                Top New
@@ -28,7 +28,7 @@ export default function HeaderCenter() {
 
             <li><Link
                activeClass="active" to="exT" spy={true}
-               smooth={true}
+               smooth={true}  
                hashSpy={true}
                offset={0}
                duration={600}
@@ -39,7 +39,7 @@ export default function HeaderCenter() {
                activeClass="active" to="mchoose" spy={true}
                smooth={true}
                hashSpy={true}
-               offset={0}
+               offset={-200}
                duration={600}
                delay={0}>
                Most Choose

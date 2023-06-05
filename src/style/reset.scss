@@ -28,6 +28,7 @@ body {
     background-color:#11141D;
 	color: $color-1;
 	@include constW();
+	font-family: 'Open Sans', sans-serif;
 }
 ol, ul {
 	list-style: none;

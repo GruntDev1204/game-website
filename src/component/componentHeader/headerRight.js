@@ -1,4 +1,5 @@
 import React, { useState  } from 'react';
+import { Data } from './apiHeader';
 import Cart from './componentCart';
 
 
@@ -11,6 +12,8 @@ export default function HeaderRight(){
     const [cart , isCart] =  useState(false);
 
 
+    const [countDataCart, setCountDataCart] = useState(Data.length);
+    
     const OpenProfile = () =>{
       setProfile(!profile);
     }
@@ -37,7 +40,7 @@ export default function HeaderRight(){
               </i>
             </li>
             <li onClick={OpenProfile} ><i className="fa fa-thin  fa-circle-user"  ></i> My account </li> 
-            <li  onClick={OpenCart} ><i className="fas fa-cart-shopping"></i> 10 </li>
+            <li  onClick={OpenCart} ><i className="fas fa-cart-shopping"></i> {countDataCart} </li>
            </ul>
            {Find &&(<div className='form-input-search'><input type="text" onChange={resultToFind} /> </div>)}
            {profile && 

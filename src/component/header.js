@@ -7,10 +7,12 @@ import HeaderCenter from "./componentHeader/headerCenter";
 export default function Header(){
     return(
         <section id="head-of-page">
-            <div className="header-area container"> 
-                <HeaderLeft/>
-                <HeaderCenter/>
-                <HeaderRight/>
+            <div className="header-area">
+                <div className="container fit">
+                     <HeaderLeft/>
+                    <HeaderCenter/>
+                    <HeaderRight/>
+                </div> 
             </div>
         </section>
     

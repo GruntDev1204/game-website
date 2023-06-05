@@ -1,28 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
+import { hotNewData, formatCurrency } from "./api";
+
+
 
 export default function HotNew() {
+
+
   return (
-    <div className="hot-area container">
-      <div className="hot-area-left">
-        <div className="content-product">
-          <img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images/artworkimages/medium/3/3-csgo-putri-anggi.jpg"></img>
-          <div className="action-product"> <h3 className="blue" >Hết Hàng</h3> <h3 className="normal">$30.00</h3></div>
+    <>
+      <div className="hot-new container">
+        <div className="hot-body">
+          <ul className="list-hot">
+            {hotNewData.map((item) => (
+              <li key={item.id}>
+                <div  className='product-card'>
+                  <img src={item.image} alt="Product Image" />
+                  <div className="details-card">
+                    <h3 className="product-action">
+                      <i className="fas fa-heart thin" />
+                      <i className="fas fa-cart-plus "></i>
+                    </h3>
+                  </div>
+
+                  <div className="text-cart">
+                    <h3 className="product-title">{item.name}</h3>
+                    {item.sale === 0 ? (
+                      <p className="product-price">
+                        <span className="price-sold">
+                          {formatCurrency(item.sale)}
+                        </span>
+                      </p>
+                    ) : (
+                      <p className="product-price">
+                        <span className="sale-type">
+                          {formatCurrency(item.price)}
+                        </span>
+                        <span className="price-sold">
+                          {formatCurrency(
+                            item.price - (item.price * item.sale) / 100
+                          )}
+                        </span>
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="hot-area-right">
-        <div className="content-product">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXPdj6aC7rnw0PAkZHdgHwKS_y6DUtYkSjFw&usqp=CAU"></img>
-          <div className="action-product">
-            <h3 className="blue">Còn Hàng</h3> <h3 className="normal">$24.00</h3>
-          </div>
-        </div>
-        <div className="content-product">
-          <img src="https://images2.thanhnien.vn/zoom/600_315/Uploaded/badiep/2021_05_02/1611060869791-1_WRJM.jpg"></img>
-          <div className="action-product">
-            <h3 className="blue">Còn Hàng</h3> <h3 className="normal">$12.00</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+    </>
+  );
 }
