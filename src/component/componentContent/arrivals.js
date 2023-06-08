@@ -38,7 +38,6 @@ export default function Arr() {
                             <li key={item.id}>
                                 <div className="product-card">
                                     <img src={item.image} alt="Product Image" />
-
                                     <div className="details-card">
                                         <h3 className="product-action">
                                             <i className="fas fa-heart thin" />

@@ -3,7 +3,7 @@
     @include color_custom(null, $bg-6);
     @include position(0);
 
-    //ảnh trang chủ
+    //ảnh trang chủ <done>
     .poster {
         @include locationOption((top, 70px));
         @include no-size-change;
@@ -47,109 +47,91 @@
     }
 
 
-    //arrivals area
+    //arrivals area <done>
     .ARR-area {
-        width: $full-width;
-        font-size: 0.3*$def;
-        margin-bottom: $def;
-        margin-top: 0.6*$def;
-
+        
+        @include Margin_option(bottom , 1);
+        @include Margin_option(top , 0.6);
+        @include sizeOption(null ,$full-width);
         @include pointer;
 
         .ARR-area-head {
-            @include drt_row;
-            justify-content: $space-row;
-
+            @include drt_option(flex,0,space-between,center);
+            @include font_option(0.3,0.3);
             .menu-skip {
-                margin-right: 0.3*$def;
-                font-size: 0.24*$def;
+                @include font_option(0.2,0.3);
+                @include font-weight(6);
                 @include row_center;
                 @include drt_row;
-
                 p:not(:last-child) {
-                    margin-right: 10px;
+                    @include Margin_option(right , 0.1);
                 }
             }
         }
 
         .ARR-area-body {
-            width: $full-width;
+            @include sizeOption(null ,$full-width);
             overflow: hidden;
 
             .list-ARR {
                 @include drt_row;
-                width: $full-width;
-                margin-top: 0.25*$def;
-                flex-wrap: nowrap;
+                @include sizeOption(null ,$full-width);
+                @include Margin_option(top , 0.3);
+                @include wrap-flex(0);
 
                 li {
-                    position: relative;
-                    height: auto;
-                    width: 0.23*$full-width;
-                    flex: 0 0 auto;
+                    @include position(0);
+                    @include sizeOption(null ,0.23*$full-width);
                     @include zoomIn;
 
                 }
 
                 li:not(:first-child) {
-                    margin-left: 35px;
+                    @include Margin_option(left , 0.35);
                 }
             }
-        }
-
-        .ARR-area-foot {
-            @include drt_row;
-            justify-content: center;
-            top: 0;
-            font-size: 0.3*$def;
         }
     }
 
 
-    //phụ kiện chơi game
+    //phụ kiện chơi game <done>
     .EXT-area {
-        width: $full-width;
-        background-color: $bg-3;
+        @include color_custom(null ,$bg-3);
         @include align_Text(start);
         @include position(0);
 
         .EXT-title {
-            font-size: 0.4*$def;
-            line-height: 0.6*$def;
-            margin-top: 0.5*$def;
+          @include font_option(0.4,0.6);
+           @include  Margin_option(top , 0.5);
         }
 
         .EXT-content {
             @include drt_row;
-            height: 8*$def;
+           @include sizeOption(8*$def , $full-width);
             @include pointer;
-            padding-bottom: 0.5*$def;
+            @include padding_option(bottom,0.5);
 
             .Content-left {
-                width: 0.5*$full-width;
-                margin-right: 0.2*$def;
-                height: $full-height;
+                @include Margin_option(right,0.2);
+                @include sizeOption($full-height ,  0.5*$full-width);
                 @include zoomIn;
             }
 
             .Content-right {
-                width: 0.48*$full-width;
-                height: $full-height;
+                @include sizeOption($full-height ,  0.48*$full-width);
                 @include drt_row;
                 flex-wrap: wrap;
-
                 .list-EXT {
-                    width: 0.48*$full-width;
-                    height: 0.49*$full-height;
+                    @include sizeOption(0.49*$full-height ,  0.48*$full-width);
                     @include zoomIn;
                 }
 
                 .list-EXT:not(:nth-child(2n+1)) {
-                    margin-left: 0.15*$def;
+                    @include  Margin_option(left , 0.15);
                 }
 
                 .list-EXT:not(:nth-child(1)):not(:nth-child(2)) {
-                    margin-top: 0.15*$def;
+                    @include  Margin_option(top , 0.15);
                 }
 
             }
@@ -239,7 +221,7 @@
         @include position(2);
         @include font_option(0.3, 0.3);
         @include border_option(radius, null , $border-tron);
-        @include color_custom(null , $bg-7);
+        @include color_custom($color-1 , $bg-7);
         @include customPadding(16px, 20px);
     }
      
@@ -249,15 +231,15 @@
         @include sizeOption(5*$def , $full-width);
         @include position(0);
         .text-cart {
-            @include sizeOption(0.3*$full-height , $full-width);
+            @include sizeOption(0.4*$full-height , $full-width);
             @include position(1);
             @include location_0(2);
             @include drt_option(flex, 1, center, center);
-            background: linear-gradient(to top, #000000, rgba(17, 16, 16, 0));
+            background: linear-gradient(to top, #000000, rgba(17, 16, 16, 0.048));
 
             .product-title {
-                @include font_option(0.2, 0.25);
-                @include font-weight(6);
+                @include font_option(0.25, 0.25);
+                @include font-weight(9);
                 @include Margin_option(bottom, 0.15);
                 @include align_Text(center);
             }
@@ -306,9 +288,9 @@
     }
     .thin:hover {
         @include font-weight(9);
-        color: pink;
+       @include color_custom($color-8 , null);
     }
     .fa-cart-plus:hover {
-        color: greenyellow;
+        @include color_custom($color-9 , null);
     }
 }

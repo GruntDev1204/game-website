@@ -1,9 +1,11 @@
-import React, { useState ,useEffect  } from "react";
+import React, { useState ,useEffect   } from "react";
+import { Link as Roue } from "react-router-dom";
 import poster from "../assets/background.png";
 import HotNew from "./componentContent/hotNew";
 import Arr from "./componentContent/arrivals";
 import Ext from "./componentContent/Extras";
 import MostChoose from "./componentContent/mostChoose";
+import Menu from "./componentContent/menu";
 import { Link as Link } from "react-scroll";
 
 export default function Content(){
@@ -33,10 +35,10 @@ export default function Content(){
       }, []);
     
     //mở menu 
-    const [menu,OpenMenu] = useState(false);
-    const clickMenu = () =>{
-        OpenMenu(!menu);
-    }
+    // const [menu,OpenMenu] = useState(false);
+    // const clickMenu = () =>{
+    //     OpenMenu(!menu);
+    // }
      
 
 
@@ -59,14 +61,15 @@ export default function Content(){
           <i className="fa-solid fa-arrow-up upto"></i>
         </Link>
         )}
-          <i className="fa-solid fa-bars menu" onClick={clickMenu}></i>
-          {menu && <h3 className="Menu">Tao là menu</h3>}
+          {/* <div className="menu-container"> */}
+          <Roue to="login"><i className="fa-solid fa-user menu" ></i></Roue>
+          {/* {menu && <Menu clickMenu={clickMenu}/>} */}
+          {/* </div> */}
             {img &&   <div className="poster"> <i className="fas fa-xmark" onClick={clickHideimg}></i> <img src={poster}></img> </div>}
             <section  id="top_new"> <HotNew/> </section>
             <section  id="arrivals"> <Arr/> </section>
             <section  id="exT"> <Ext/> </section>
             <section  id="mchoose"> <MostChoose/> </section>
-
         </div>
     </>
    )

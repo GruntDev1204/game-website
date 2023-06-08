@@ -3,23 +3,28 @@ $color-1 : #FFFFFF;
 $color-4 : #888;
 $color-2 : #2DAAF5;
 $color-3 : #d9d9d9;
-
+$color-10:#868788;
+$color-11 : #aca59a;
 $color-5 : #d9d9d9;
 
 $color-6 : #161616;
 $color-7 : #f34f0e;
+$color-8 :#fb0471;
+$color-9:#a2fa00;
+$color-12:#34393b;
 
 
 //background
 $bg-4 :#3CA5EB;
 $bg-1 : #000000;
+$bg-8:#0e0f0f;
 
 $bg-2 : #3F475C;
-$bg-3 : #11141D;
+$bg-3 : #07090e;
 $bg-5 :#212330;
 $bg-6: #232531;
 
-$bg-7 : #11141d44;
+$bg-7 : #11141d80;
 
 
 
@@ -113,6 +118,13 @@ $row-start : flex-start;
         #{$property}: $value;
     }
 }
+@mixin wrap-flex($k){
+    @if $k == 0 {
+        flex-wrap: nowrap;
+    }@else if $k == 1{
+        flex-wrap: wrap;
+    }
+}
 
 @mixin full_size(){
     height: $full-height;
@@ -188,3 +200,11 @@ img{
 @mixin align_Text($value){
       text-align:  $value;
 }
+
+@mixin translateOption($x: 0, $y: 0) {
+    transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+  }

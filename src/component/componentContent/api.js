@@ -104,30 +104,30 @@ export const ExtData = [
 export const hotNewData = [
     {
         id: 1,
-        image: 'https://i.pinimg.com/736x/16/1b/cc/161bcc1285bfa500731f9e1897a16411.jpg',
-        name: 'Pool Girl',
+        image: 'https://i.pinimg.com/736x/79/80/bd/7980bdc2493ac22eb549eae04dcb4dfe.jpg',
+        name: 'CS:GO',
         price: 12,
         sale: 22,
 
     },
     {
         id: 2,
-        image: 'https://i.pinimg.com/564x/74/91/f9/7491f9e2700e0815d4d2cf20dd68088b.jpg',
-        name: 'Tina',
+        image: 'https://i.pinimg.com/564x/de/ab/84/deab841a84605fb55308affaa294fdae.jpg',
+        name: 'PUBG',
         price: 35,
         sale: 15,
     },
     {
         id: 3,
-        image: 'https://i.pinimg.com/564x/1e/45/98/1e4598791288f02a83f80d64c10415e2.jpg',
-        name: 'Japan',
+        image: 'https://i.pinimg.com/564x/06/7c/5a/067c5a9af63e76d22073fdc166911848.jpg',
+        name: 'Among US',
         price: 37,
         sale: 16,
     },
     {
         id: 4,
-        image: 'https://i.pinimg.com/564x/dd/2a/a6/dd2aa622fa55d69714b40f76b7e67e9c.jpg',
-        name: 'Tiếp Viên Hàng Không',
+        image: 'https://i.pinimg.com/736x/36/3c/a3/363ca37645320f1a058edde4fa133d89.jpg',
+        name: 'Dragon Warrios',
         price: 68,
         sale: 12,
     },

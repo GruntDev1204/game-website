@@ -4,8 +4,7 @@
 @import './component/header.scss';
 @import 'component/content.scss';
 @import 'component/footer.scss';
-@import 'component/loginForm.scss';
-@import 'component/signupform.scss';
+@import 'component/Form.scss';
 
 
 
@@ -25,3 +24,79 @@ a {
 }
 
 
+//tmp component
+.menu-container {
+    @include position(2);
+  }
+  
+  
+.tmp{
+    height: 100%;
+    width: 100%;
+    background-color: #302a2a48;
+    @include position(2);
+}
+.menu-list {
+    @include position(2);
+    @include locationOption((left,50%) ,(top,50%));
+    @include translateOption(-50%,-50%);
+    padding: 10px;
+    height: 700px;
+    width: 700px;
+    background-color: #0c0606;
+}
+  
+  
+
+//phần chưa làm
+    //profile
+    .list-Prf {
+        @include position(2);
+        font-size: 15px;
+        top: 50px;
+        right: 300px;
+        width: 120px;
+
+        li:not(:first-child) {
+            margin-bottom: 5px;
+        }
+
+        li:not(:last-child) {
+            border-bottom: 1px solid;
+        }
+
+        li {
+            background-color: #333;
+            padding: 10px;
+            width: 100%;
+            text-align: start;
+        }
+    }
+
+   
+
+    //form   
+    .form-input-search {
+        @include row_center();
+        @include position(2);
+       width: 2.8*$def;
+       background-color: $color-5;
+       height: 0.3*$def;
+       border-radius: 0.07*$def;
+       color: $color-1;
+       top: 0.65*$def ;
+       right: 2.2*$def;
+
+       input {
+           height: 0.83*$full-height;
+           border-radius: 0.1*$def;
+           width: $full-width;
+           font-size: 0.17*$def;
+           line-height: 0.5*$def;
+           background-color: $bg-2;
+           padding: 5px 10px;
+           color: $color-1;
+           z-index: 9999;
+           top: 50%;
+       }
+   }
