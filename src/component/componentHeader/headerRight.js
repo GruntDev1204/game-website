@@ -3,7 +3,7 @@ import { Data } from './apiHeader';
 import Cart from './componentCart';
 
 
-export default function HeaderRight(){
+export default function HeaderRight({setToggle}){
     const [Find, setFind] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
@@ -24,9 +24,14 @@ export default function HeaderRight(){
       setFind(!Find);
     } 
 
+    const openProfiledt = () =>{
+      setToggle();
+      setProfile(!profile);
+    }
+    
 
    
-
+    
     const resultToFind = (event) => {
         setInputValue(event.target.value); // Xử lý sự kiện input
         console.log(event.target.value); // Xử lý sự kiện input
@@ -45,13 +50,15 @@ export default function HeaderRight(){
            {Find &&(<div className='form-input-search'><input type="text" onChange={resultToFind} /> </div>)}
            {profile && 
               <ul className='list-Prf'>
-                <li>Your Profile</li>
+                <li onClick={openProfiledt}>Your Profile</li>
                 <li>Logout</li>
               </ul>
             }
             {cart && 
               <Cart openCart={OpenCart} />
             }
+           
        </div>
+       
     )
 }

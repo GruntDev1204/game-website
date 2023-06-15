@@ -1,6 +1,6 @@
 .Form-user{
     @include sizeOption(8*$def , 10*$def);
-    @include color_custom($color-3 ,$bg-3);
+    @include color_custom($color-3 ,$bg-8);
     @include position(2);
     @include locationOption((left,50%) ,(top,50%));
     @include translateOption(-50%,-50%);
@@ -97,7 +97,18 @@
             @include Margin_option(bottom,1);
         }
        
-      
-       
+    }
+    .click-to-home{
+        @include position(1);
+        @include locationOption((top,5px) , (right,10px));
+        @include color_custom($color-1,$bg-1);
+        @include sizeOption(40px,40px);
+        border-radius:50px;
+        @include drt_option(flex,0,center,center);
+        @include font_option(0.2,0.2);
+        @include pointer;
+        &:hover{
+            @include color_custom(null,$bg-3);
+        }
     }
 }

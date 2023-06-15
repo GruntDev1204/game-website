@@ -96,7 +96,7 @@
 
     //phụ kiện chơi game <done>
     .EXT-area {
-        @include color_custom(null ,$bg-3);
+        @include color_custom(null ,$bg-8);
         @include align_Text(start);
         @include position(0);
 
@@ -285,10 +285,10 @@
     .thin {
         @include font-weight(1);
         @include Margin_option(right, 0.3);
-    }
-    .thin:hover {
-        @include font-weight(9);
-       @include color_custom($color-8 , null);
+        &:hover{
+            @include font-weight(9);
+            @include color_custom($color-8 , null);
+        }
     }
     .fa-cart-plus:hover {
         @include color_custom($color-9 , null);

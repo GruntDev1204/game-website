@@ -10,7 +10,7 @@ export default function HeaderCenter() {
                activeClass="active" to="top_new" spy={true}
                smooth={true}
                hashSpy={true}
-               offset={0}
+               offset={-100}
                duration={600}
                delay={0}>
                Top New
@@ -21,7 +21,7 @@ export default function HeaderCenter() {
                hashSpy={true}
                offset={0}
                duration={600}
-               delay={0}>
+               delay={-300}>
                New Arrivals
             </Link> </li>
             <li>Steam </li>
@@ -30,7 +30,7 @@ export default function HeaderCenter() {
                activeClass="active" to="exT" spy={true}
                smooth={true}  
                hashSpy={true}
-               offset={0}
+               offset={-100}
                duration={600}
                delay={0}>
                Devices

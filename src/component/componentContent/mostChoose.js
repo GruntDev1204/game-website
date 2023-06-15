@@ -1,5 +1,7 @@
 import React from "react";
 import { DataMC } from "./api";
+import { themVaoGio , addtoWish} from "../nofity";
+
 
 export default function MostChoose() {
 
@@ -12,8 +14,8 @@ export default function MostChoose() {
             <li key={key.id}>
               <img src={key.img} />
                 <div className="action-mc">
-                <i className="fas fa-heart thin" />
-                  <i className="fas fa-cart-plus "></i>
+                <i className="fas fa-heart thin" onClick={addtoWish} />
+                  <i className="fas fa-cart-plus " onClick={themVaoGio}></i>
                 </div>
             </li>
           ))}

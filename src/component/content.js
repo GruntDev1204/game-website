@@ -7,6 +7,7 @@ import Ext from "./componentContent/Extras";
 import MostChoose from "./componentContent/mostChoose";
 import Menu from "./componentContent/menu";
 import { Link as Link } from "react-scroll";
+import { ToastContainer } from 'react-toastify';
 
 export default function Content(){
     //ẩn ảnh poster
@@ -26,7 +27,6 @@ export default function Content(){
         const handleScroll = () => {
           const position = window.pageYOffset;
           setScrollPosition(position);
-          console.log(position)
         };
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -44,7 +44,8 @@ export default function Content(){
 
 
    return(
-    <>
+    <>  
+        <ToastContainer/>
         <div className="Content-area ">
 
         {scrollPosition !== 0 && (

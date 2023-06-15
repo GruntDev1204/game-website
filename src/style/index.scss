@@ -46,7 +46,25 @@ a {
     background-color: #0c0606;
 }
   
-  
+.profile-card{
+    @include position(2);
+    @include full_size;
+    background-color: #00000048;
+    @include locationOption((left,0) ,(top,0));
+    .fa-xmark{
+        @include position(1);
+        font-size: 20px;
+        @include locationOption((top,5px) ,(right,5px));
+        @include pointer
+    }
+    .profile-dt{
+        @include sizeOption(500px,$full-width);
+        @include position(2);
+        @include locationOption((left,50%) ,(top,50%));
+        @include translateOption(-50%,-50%);
+        background-color: #000000;
+    }
+}
 
 //phần chưa làm
     //profile

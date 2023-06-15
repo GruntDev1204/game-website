@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { dataArrivals, formatCurrency } from './api';
+import { themVaoGio , addtoWish} from "../nofity";
 
 export default function Arr() {
     const [show, setShow] = useState(1);
@@ -40,8 +41,8 @@ export default function Arr() {
                                     <img src={item.image} alt="Product Image" />
                                     <div className="details-card">
                                         <h3 className="product-action">
-                                            <i className="fas fa-heart thin" />
-                                            <i className="fas fa-cart-plus "></i>
+                                            <i className="fas fa-heart thin"  onClick={addtoWish} />
+                                            <i className="fas fa-cart-plus  " onClick={themVaoGio} />
                                         </h3>
                                     </div>
 

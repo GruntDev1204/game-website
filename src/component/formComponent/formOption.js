@@ -12,7 +12,11 @@ export default function FormRoot() {
                 <Outlet />
             </div>
             <div className="poster-form">
-              <img src="https://i.pinimg.com/564x/fc/e8/0a/fce80a4a263e9bfb8b2fad2cbecf91d7.jpg"></img>
+                <div className="click-to-home">
+                <Link  to="/
+                " ><i className="fas fa-home "></i> </Link>
+                </div>
+                <img src="https://i.pinimg.com/564x/fc/e8/0a/fce80a4a263e9bfb8b2fad2cbecf91d7.jpg"></img>
             </div>
         </div>
 

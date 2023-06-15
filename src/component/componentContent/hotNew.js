@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { hotNewData, formatCurrency } from "./api";
-
-
+import { themVaoGio , addtoWish} from "../nofity";
 
 export default function HotNew() {
-
-
   return (
     <>
       <div className="hot-new container">
@@ -17,11 +14,10 @@ export default function HotNew() {
                   <img src={item.image} alt="Product Image" />
                   <div className="details-card">
                     <h3 className="product-action">
-                      <i className="fas fa-heart thin" />
-                      <i className="fas fa-cart-plus "></i>
+                      <i className="fas fa-heart thin" onClick={addtoWish} />
+                      <i className="fas fa-cart-plus " onClick={themVaoGio} ></i>
                     </h3>
                   </div>
-
                   <div className="text-cart">
                     <h3 className="product-title">{item.name}</h3>
                     {item.sale === 0 ? (
