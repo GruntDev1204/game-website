@@ -1,0 +1,43 @@
+.footer-area {
+  @include position(0);
+  @include sizeOption(null, $full-width);
+  @include color_custom($color-5, $bg-3);
+  .Footer-top {
+    @include sizeOption(3 * $def, $full-width);
+    @include drt_option(flex, 0, center, center);
+    .element-Contract {
+      @include pointer;
+      @include drt_option(flex, 1, center, center);
+      font-family: Arial, Helvetica, sans-serif;
+      @include sizeOption(100px, $full-width);
+      i {
+        @include font_option(0.6, 0.6);
+        @include Margin_option(bottom, 0.2);
+      }
+      @include font_option(0.3, 0.3);
+      @include font-weight(7);
+    }
+  }
+
+  .footer-font {
+    @include border_option(top, $color-12, 1px);
+    @include position(1);
+    @include font_option(0.2, 0.4);
+    @include sizeOption(70px, $full-width);
+    @include location_0(2);
+    font-family: Arial, Helvetica, sans-serif;
+    @include drt_option(flex, 1, center, center);
+    .line-footer {
+      @include pointer;
+      @include color_custom($color-4, null);
+      @include drt_option(flex, 0, center, center);
+      i {
+        @include font_option(0.2, 0.2);
+        @include font-weight(1);
+      }
+      span {
+        @include Margin_option(left, 0.06);
+      }
+    }
+  }
+}

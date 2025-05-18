@@ -1,0 +1,264 @@
+.Content-area {
+  @include constW();
+  @include color_custom(null, $bg-6);
+  @include position(0);
+  .poster {
+    @include locationOption((top, 70px));
+    @include no-size-change;
+    @include position(0);
+    i {
+      @include position(1);
+      @include font_option(0.3, 0.3);
+      @include font-weight(7);
+      @include locationOption((right, 10px), (top, 5px));
+      @include color_custom($bg-6, null);
+      @include pointer;
+    }
+  }
+
+  .hot-new {
+    @include sizeOption(auto, $full-width);
+    @include Margin_option(top, 0.85);
+    @include Margin_option(bottom, 0.3);
+    .hot-body {
+      overflow: hidden;
+      .list-hot {
+        @include drt_option(flex, 0, null, null);
+        li {
+          @include position(0);
+          @include sizeOption(auto, 0.23 * $full-width);
+          @include pointer;
+        }
+
+        li:not(:first-child) {
+          @include Margin_option(left, 0.35);
+        }
+      }
+    }
+  }
+
+  //arrivals area <done>
+  .ARR-area {
+    @include Margin_option(bottom, 1);
+    @include Margin_option(top, 0.6);
+    @include sizeOption(null, $full-width);
+    @include pointer;
+    .ARR-area-head {
+      @include drt_option(flex, 0, space-between, center);
+      @include font_option(0.3, 0.3);
+      .menu-skip {
+        @include font_option(0.2, 0.3);
+        @include font-weight(6);
+        @include row_center;
+        @include drt_row;
+        p:not(:last-child) {
+          @include Margin_option(right, 0.1);
+        }
+      }
+    }
+
+    .ARR-area-body {
+      @include sizeOption(null, $full-width);
+      overflow: hidden;
+      .list-ARR {
+        @include drt_row;
+        @include sizeOption(null, $full-width);
+        @include Margin_option(top, 0.3);
+        @include wrap-flex(0);
+        li {
+          @include position(0);
+          @include sizeOption(null, 0.23 * $full-width);
+          @include zoomIn;
+        }
+
+        li:not(:first-child) {
+          @include Margin_option(left, 0.35);
+        }
+      }
+    }
+  }
+
+  //phụ kiện chơi game <done>
+  .EXT-area {
+    @include color_custom(null, $bg-8);
+    @include align_Text(start);
+    @include position(0);
+    .EXT-title {
+      @include font_option(0.4, 0.6);
+      @include Margin_option(top, 0.5);
+    }
+
+    .EXT-content {
+      @include drt_row;
+      @include sizeOption(8 * $def, $full-width);
+      @include pointer;
+      @include padding_option(bottom, 0.5);
+      .Content-left {
+        @include Margin_option(right, 0.2);
+        @include sizeOption($full-height, 0.5 * $full-width);
+        @include zoomIn;
+      }
+
+      .Content-right {
+        @include sizeOption($full-height, 0.48 * $full-width);
+        @include drt_row;
+        flex-wrap: wrap;
+        .list-EXT {
+          @include sizeOption(0.49 * $full-height, 0.48 * $full-width);
+          @include zoomIn;
+        }
+
+        .list-EXT:not(:nth-child(2n + 1)) {
+          @include Margin_option(left, 0.15);
+        }
+
+        .list-EXT:not(:nth-child(1)):not(:nth-child(2)) {
+          @include Margin_option(top, 0.15);
+        }
+      }
+    }
+  }
+
+  //most choose <done>
+  .mc-area {
+    @include Margin_option(top, 0.15);
+    @include Margin_option(bottom, 0.15);
+    h3 {
+      @include font_option(0.35, 0.4);
+      @include Margin_option(bottom, 0.3);
+    }
+
+    .list-mc {
+      @include drt_row;
+      @include sizeOption(4 * $def, $full-width);
+      @include Margin_option(bottom, 0.3);
+      li {
+        @include sizeOption(null, 0.15 * $full-width);
+        @include pointer;
+        @include position(0);
+        @include zoomIn;
+        .action-mc {
+          @include sizeOption(0.3 * $full-height, $full-width);
+          @include padding_option(top, 0.2);
+          @include position(1);
+          @include location_0(0);
+          @include drt_option(flex, 0, center, flex-start);
+          background: linear-gradient(to bottom, #000000, rgba(17, 16, 16, 0));
+          @include font_option(0.3, 0.3);
+          @include showInhover;
+        }
+      }
+
+      li:not(:first-child) {
+        @include Margin_option(left, 0.3);
+      }
+    }
+  }
+
+  //component riêng
+  //<done>
+  .price-EXT {
+    @include position(1);
+    @include padding_option(0, 0.15);
+    @include color_custom(null, $bg-4);
+    @include font_option(0.2, 0.25);
+    @include font-weight(6);
+  }
+
+  .Menu {
+    @include position(2);
+    @include locationOption((top, $def), (left, 1.2 * $def));
+  }
+
+  //<done>
+  .upto {
+    @include pointer;
+    @include position(2);
+    @include font_option(0.3, 0.3);
+    @include border_option(radius, null, $border-tron);
+    @include border_option(null, null, 1px);
+    @include locationOption((bottom, 60px), (right, 70px));
+    @include customPadding(6px, 10px);
+    &:hover {
+      @include color_custom(null, $bg-4);
+      @include border_option(null, $bg-4, 1px);
+    }
+  }
+
+  //done
+  .menu {
+    @include pointer;
+    @include locationOption((top, 93px), (left, 30px));
+    @include position(2);
+    @include font_option(0.3, 0.3);
+    @include border_option(radius, null, $border-tron);
+    @include color_custom($color-1, $bg-7);
+    @include customPadding(16px, 20px);
+  }
+
+  //card sp <done>
+  .product-card {
+    @include sizeOption(5 * $def, $full-width);
+    @include position(0);
+    .text-cart {
+      @include sizeOption(0.4 * $full-height, $full-width);
+      @include position(1);
+      @include location_0(2);
+      @include drt_option(flex, 1, center, center);
+      background: linear-gradient(to top, #000000, rgba(17, 16, 16, 0.048));
+      .product-title {
+        @include font_option(0.25, 0.25);
+        @include font-weight(9);
+        @include Margin_option(bottom, 0.15);
+        @include align_Text(center);
+      }
+
+      .product-price {
+        @include drt_option(flex, 0, center, center);
+        .price-sold {
+          @include font-weight(7);
+          @include font_option(0.22, 0.25);
+          @include Margin_option(left, 0.35);
+          @include color_custom($color-7, null);
+        }
+
+        .price-no-sale {
+          @include font-weight(7);
+          @include font_option(0.25, 0.25);
+          @include color_custom($color-7, null);
+        }
+
+        .sale-type {
+          text-decoration: line-through;
+          @include font_option(0.19, 0.25);
+        }
+      }
+    }
+
+    .details-card {
+      @include position(1);
+      @include location_0(2);
+      @include full-size;
+      @include drt_option(flex, 1, flex-start, flex-end);
+      @include showInhover;
+      background: linear-gradient(to bottom, #000000, rgba(17, 16, 16, 0));
+    }
+    .product-action {
+      @include font_option(0.3, 0.5);
+      @include drt_row;
+      @include Margin_option(top, 0.2);
+      @include Margin_option(right, 0.2);
+    }
+  }
+  .thin {
+    @include font-weight(1);
+    @include Margin_option(right, 0.3);
+    &:hover {
+      @include font-weight(9);
+      @include color_custom($color-8, null);
+    }
+  }
+  .fa-cart-plus:hover {
+    @include color_custom($color-9, null);
+  }
+}

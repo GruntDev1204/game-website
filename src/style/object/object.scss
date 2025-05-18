@@ -1,0 +1,209 @@
+//font-color 
+$color-1 : #FFFFFF;
+$color-4 : #888;
+$color-2 : #2DAAF5;
+$color-3 : #d9d9d9;
+$color-10:#868788;
+$color-11 : #aca59a;
+$color-5 : #d9d9d9;
+
+$color-6 : #161616;
+$color-7 : #f34f0e;
+$color-8 :#fb0471;
+$color-9:#a2fa00;
+$color-12:#34393b;
+
+
+//background
+$bg-4 :#3CA5EB;
+$bg-1 : #0000006c;
+$bg-8:#0e0f0f;
+
+$bg-2 : #3F475C;
+$bg-3 : #07090e;
+$bg-5 :#212330;
+$bg-6: #232531;
+
+$bg-7 : #11141d80;
+
+
+
+$border-goc : 10px;
+$border-tron : 50%;
+
+$def : 100px;
+$def-font-weight:100;
+$full-width :100%;
+$full-height :100%;
+
+$end-row : flex-end;
+$space-row : space-between;
+$row-center : center;
+$row-start : flex-start;
+
+
+@mixin color_custom($color , $bg){
+    background-color: $bg;
+    color: $color;
+}
+
+@mixin sizeOption($valueH :auto, $valueW :auto){
+    height: $valueH;
+    width: $valueW;
+}
+
+@mixin drt_option($value, $col: 0, $value_y, $value_x) {
+    display: $value;
+    @if $col == 1 {
+        flex-direction: column;
+    }
+    @if $value_y {
+      justify-content: $value_y
+    }
+    @if $value_x {
+      align-items: $value_x
+    }
+}
+
+@mixin border_option($location : null ,  $color : null , $value ){
+    @if $location == null{
+        @if $value == 'none'{
+            border : $value 
+        }@else{
+            border : $value solid $color
+        }
+    }@else{
+        @if $location == 'radius' {
+            border-radius:  $value
+        }
+        @else{
+            border#{-$location} : $value solid $color
+        }
+    }
+  
+}
+
+@mixin customPadding($top: null, $right: null, $bottom: null, $left: null) {
+    padding: $top $right $bottom $left
+}
+
+@mixin font_option($valueFont , $valueLine ) {
+    font-size: $valueFont * $def;
+    line-height: $valueLine * $def;
+}
+@mixin font-weight($value){
+    @if $value < 10 and $value > 4 {
+        font-weight: $value * $def-font-weight;
+    }@else{
+        font-weight: 5 * $def-font-weight;
+    }
+}
+@mixin Margin_option($location , $value){
+    margin-#{$location}: $value * $def;
+}
+
+@mixin padding_option($location , $value){
+    @if $location == 0 {
+        padding : $value * $def;
+    }@else{
+        padding-#{$location}: $value * $def;
+    }
+}
+
+@mixin locationOption($locations...) {
+    @for $i from 1 through length($locations) {
+        $location: nth($locations, $i);
+        $property: nth($location, 1);
+        $value: nth($location, 2);
+        #{$property}: $value;
+    }
+}
+@mixin wrap-flex($k){
+    @if $k == 0 {
+        flex-wrap: nowrap
+    }@else if $k == 1{
+        flex-wrap: wrap
+    }
+}
+
+@mixin full_size(){
+    height: $full-height;
+    width: $full-width;
+}
+@mixin constW(){
+    width: $full-width;
+    height: auto;
+    overflow-x: hidden;
+}
+@mixin no-size-change{
+    width: $full-width;
+    height: fit-content;
+    overflow: hidden;
+}
+@mixin drt_row(){
+    display: flex;
+}
+@mixin row_center(){
+    align-items: center;
+    justify-content: center;
+    @include drt_row();
+}
+@mixin drt_col(){
+    display: flex;
+    flex-direction: column;
+}
+@mixin col_start(){
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include drt_col();
+}
+
+@mixin pointer(){
+    cursor: pointer;
+}
+
+input{
+    outline: none;
+    border: none;
+}
+img{
+    width: $full-width;
+    height: $full-height;
+    object-fit: cover;
+}
+
+@mixin position($value){
+    @if $value == 0 {
+        position: relative;
+    }
+    @if $value == 1 {
+       position : absolute
+    }@else if  $value == 2 {
+        position: fixed;
+        z-index: 9999;
+    }
+}
+
+@mixin location_0($value){
+    @if $value == 0 {
+        top: 0
+    }@else if $value == 1 {
+        right: 0
+    }@else if $value == 2{
+        bottom: 0
+    }@else if $value == 3 {
+        left: 0
+    }
+}
+
+@mixin align_Text($value){
+      text-align:  $value
+}
+
+@mixin translateOption($x: 0, $y: 0) {
+    transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+  }

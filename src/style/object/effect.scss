@@ -1,0 +1,19 @@
+@mixin zoomInY(){
+    transition: transform 0.3s ease;
+    &:hover{ 
+        transform: scaleY(1.05)
+    }
+}
+@mixin zoomIn(){
+    transition: transform 0.3s ease;
+    &:hover{ 
+        transform: scale(1.05)
+    }
+}   
+
+@mixin showInhover(){
+    opacity: 0;
+    &:hover{
+        opacity: 1;
+    }
+}

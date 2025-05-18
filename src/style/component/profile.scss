@@ -1,0 +1,155 @@
+@import "../object/object.scss";
+@import "../object/effect.scss";
+
+html,
+body,
+#root {
+  @include full_size;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.profile-card {
+  @include position(2);
+  @include full_size;
+  background: rgba(0, 0, 0, 0.5);
+  @include drt_option(flex, 0, flex-start, flex-start);
+  z-index: 10000;
+  margin-bottom: 10px;
+  .profile-dt {
+    background: $bg-3;
+    @include border_option(radius, null, 20px);
+    box-shadow: 0 8px 32px 0 rgba(234, 255, 0, 0.745);
+    @include customPadding(32px, 24px, 24px, 24px);
+    width: 75% !important;
+    @include position(1);
+    height: 550px !important;
+    margin: 0 auto;
+    .fa-xmark {
+      @include position(1);
+      @include locationOption((right, 16px), (top, 16px));
+      font-size: 1.5rem;
+      color: $color-1;
+      opacity: 0.7;
+      @include pointer();
+      transition: opacity 0.2s;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .profile-header {
+      @include drt_option(flex, 0, null, center);
+      gap: 18px;
+      @include Margin_option(bottom, 0.18);
+      .profile-avatar {
+        @include sizeOption(80px, 80px);
+        @include border_option(radius, null, $border-tron);
+        object-fit: cover;
+        @include border_option(null, $color-2, 3px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+      .profile-info {
+        h2 {
+          margin: 0;
+          color: $color-2;
+          @include font_option(0.15, 0.15);
+          @include font-weight(7);
+        }
+        .profile-id {
+          color: $color-4;
+          font-size: 0.9rem;
+          margin-top: 4px;
+        }
+      }
+    }
+    .profile-content {
+      @include Margin_option(bottom, 0.25);
+      p {
+        margin: 6px 0;
+        color: $color-1;
+        font-size: 1rem;
+        .profile-desc {
+          color: $color-11;
+          font-style: italic;
+        }
+      }
+    }
+    .profile-footer {
+      @include drt_option(flex, 0, flex-end, null);
+      .btn-edit {
+        @include color_custom($color-1, $color-2);
+        border: none;
+        @include border_option(radius, null, 8px);
+        @include customPadding(8px, 20px, 8px, 20px);
+        font-size: 1rem;
+        @include font-weight(6);
+        @include pointer();
+        box-shadow: 0 2px 8px rgba(6, 6, 6, 0.08);
+        transition: background 0.2s;
+        &:hover {
+          background: $color-7;
+        }
+      }
+    }
+    .profile-gallery {
+      img {
+        @include sizeOption(300px, 100%);
+        @include border_option(null, $color-2, 1px);
+      }
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 18px 0 10px 0;
+      .profile-gallery-img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        @include border_option(radius, null, 10px);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+        background: $bg-5;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 600px) {
+  .profile-card .profile-dt {
+    @include customPadding(18px, 6px, 12px, 6px);
+    min-width: 0;
+    width: 98vw;
+    .profile-header {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      .profile-avatar {
+        @include sizeOption(60px, 60px);
+      }
+      .profile-info h2 {
+        font-size: 1.1rem;
+      }
+    }
+    .profile-content p {
+      font-size: 0.95rem;
+    }
+    .profile-footer .btn-edit {
+      width: 100%;
+      @include customPadding(10px, 0, 10px, 0);
+    }
+    .profile-gallery {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      .profile-gallery-img {
+        @include border_option(radius, null, 6px);
+      }
+    }
+  }
+}
+
+.profile-card .profile-dt.container {
+  margin: 0 !important;
+  max-width: none !important;
+  width: 400px !important;
+}

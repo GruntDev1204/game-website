@@ -1,0 +1,127 @@
+.header-area {
+  @include row_center;
+  @include sizeOption(0.5 * $def, $full-width);
+  @include pointer();
+  @include position(2);
+  @include locationOption((top, 0), (right, 0), (left, 0));
+  @include padding_option(top, 0.1);
+  @include padding_option(bottom, 0.1);
+  @include color_custom($color-5, $bg-3);
+  .Header-left {
+    @include row_center;
+    @include font_option(0.4, 0.4);
+    @include font-weight(7);
+    h3 {
+      @include color_custom($color-2, $bg-3);
+    }
+    p {
+      @include color_custom($color-1, $bg-3);
+    }
+  }
+
+  .Header-right {
+    @include sizeOption(auto, 0.2 * $full-width);
+    @include font_option(0.17, 0.3);
+    .list-right {
+      @include row_center;
+      li:not(:first-child) {
+        @include Margin_option(left, 0.25);
+        @include color_custom($color-3, $bg-3);
+      }
+      li:hover {
+        @include color_custom($color-1, $bg-3);
+      }
+    }
+  }
+
+  .Header-center {
+    @include sizeOption(auto, 0.7 * $full-width);
+    @include font_option(0.17, 0.2);
+    .list-center {
+      @include row_center;
+      li {
+        @include color_custom($color-3, $bg-3);
+        @include Margin_option(left, 0.7);
+      }
+      li:hover {
+        @include color_custom($color-1, null);
+        color: #00ffea;
+      }
+    }
+  }
+
+  .Cart {
+    @include position(2);
+    @include sizeOption(fit-content, fit-content);
+    @include locationOption((top, 80px), (right, 20px));
+    @include color_custom($color-10, $bg-3);
+    @include customPadding(10px, 15px);
+    @include border_option(radius, null, 0.1);
+    .Title-Cart {
+      @include font_option(0.3, 0.3);
+      @include Margin_option(bottom, 0.1);
+      @include align_Text(start);
+    }
+
+    .Cart-list {
+      @include sizeOption(fit-content);
+      @include border_option(bottom, null, 1px);
+      @include Margin_option(bottom, 0.2);
+      li {
+        @include color_custom($color-1, $bg-5);
+        @include position(0);
+        @include customPadding(10px, 15px);
+        @include border_option(radius, null, 10px);
+        @include sizeOption(110px, 500px);
+        @include drt_option(flex, 0, null, flex-start);
+        @include Margin_option(bottom, 0.15);
+        .button-quantity {
+          @include sizeOption(100%, 50px);
+          @include drt_option(flex, 1, center, center);
+          @include color_custom($color-6, $color-1);
+          @include border_option(null, $color-1, 1px);
+          @include border_option(radius, null, 5px);
+          .quantity {
+            @include padding_option(0, 0.1);
+            @include font_option(0.25, 0.3);
+          }
+        }
+        .close-cart {
+          @include sizeOption($full-height);
+          @include drt_option(flex, 1, center, null);
+          @include color_custom($color-4, null);
+          @include font_option(0.5, 0.5);
+          @include zoomIn;
+        }
+        .line-cart {
+          @include sizeOption(auto, 0.55 * $full-width);
+          @include Margin_option(left, 0.15);
+          @include drt_option(flex, 1, center, flex-start);
+          p:first-child {
+            @include font_option(0.37, 0.5);
+            @include font-weight(7);
+          }
+        }
+        img {
+          @include sizeOption($full-height, $def * 1.1);
+          @include Margin_option(left, 0.15);
+          @include border_option(radius, null, 0.1 * $def);
+        }
+      }
+    }
+
+    .btn-sumbit {
+      @include color_custom($color-1, $bg-5);
+      @include border_option(null, null, none);
+      @include customPadding(0.1 * $def, 0.2 * $def);
+      @include pointer();
+      @include border_option(radius, null, 0.05 * $def);
+      @include Margin_option(top, 0.1);
+      @include Margin_option(bottom, 0.1);
+      @include Margin_option(right, 0.1);
+    }
+    .btn-sumbit:hover {
+      @include color_custom(null, $bg-6);
+    }
+  }
+}

@@ -1,0 +1,108 @@
+.Form-user {
+  @include sizeOption(8 * $def, 10 * $def);
+  @include color_custom($color-3, $bg-8);
+  @include position(2);
+  @include locationOption((left, 50%), (top, 50%));
+  @include translateOption(-50%, -50%);
+  @include drt_row;
+  .poster-form {
+    @include sizeOption($full-height, 0.5 * $full-width);
+  }
+  .form-card {
+    @include customPadding(30px, 30px);
+    @include sizeOption(auto, 0.55 * $full-width);
+    //phần header <done>
+    .list-form {
+      @include drt_option(flex, 0, flex-start, null);
+      @include sizeOption(auto, $full-width);
+      @include Margin_option(bottom, 0.2);
+      .form-title {
+        @include font_option(0.25, 0.3);
+        @include font-weight(7);
+        @include padding_option(bottom, 0.1);
+        @include border_option(bottom, $color-10, 1px);
+        @include pointer;
+        &:hover {
+          border-color: rgb(235, 211, 0);
+          color: rgb(233, 158, 9);
+        }
+        &:not(:first-child) {
+          @include Margin_option(left, 0.5);
+        }
+      }
+    }
+
+    .form-content {
+      @include font_option(0.15, 0.2);
+      @include sizeOption(null, $full-width);
+      @include drt_option(flex, 1, center, null);
+      .input-form {
+        @include Margin_option(bottom, 0.3);
+        @include sizeOption(null, $full-width);
+        p {
+          @include font_option(0.15, 0.4);
+        }
+        .form-control {
+          @include sizeOption(null, 470px);
+          @include customPadding(5px, 5px);
+          @include border_option(radius, null, 5px);
+          @include font_option(0.25, 0.2);
+        }
+      }
+      .form-check {
+        @include font_option(0.16, 0.2);
+        @include color_custom($color-11, null);
+        @include Margin_option(bottom, 0.2);
+        letter-spacing: 0.0005rem;
+      }
+      .action {
+        @include sizeOption(null, $full-width);
+        .btn-submit {
+          @include customPadding(10px, 5px);
+          @include border_option(radius, null, 10px);
+          @include sizeOption(null, $full-width);
+          @include font_option(0.25, 0.2);
+          @include font-weight(7);
+          @include Margin_option(bottom, 0.2);
+          @include pointer;
+        }
+      }
+    }
+
+    .action-user {
+      @include sizeOption(null, $full-width);
+      @include drt_option(flex, 1, center, center);
+      @include color_custom($color-11, null);
+      @include pointer;
+      .border {
+        @include border_option(top, $color-12, 1px);
+        @include padding_option(top, 0.25);
+      }
+      span {
+        @include sizeOption(null, 3 * $def);
+        @include align_Text(center);
+        @include padding_option(bottom, 0.2);
+        @include font_option(0.15, 0.3);
+      }
+    }
+
+    //thuộc tính riêng
+    .Ma-lg {
+      @include Margin_option(top, 0.7);
+      @include Margin_option(bottom, 1);
+    }
+  }
+  .click-to-home {
+    @include position(1);
+    @include locationOption((top, 5px), (right, 10px));
+    @include color_custom($color-1, $bg-1);
+    @include sizeOption(40px, 40px);
+    border-radius: 50px;
+    @include drt_option(flex, 0, center, center);
+    @include font_option(0.2, 0.2);
+    @include pointer;
+    &:hover {
+      @include color_custom(null, $bg-3);
+    }
+  }
+}

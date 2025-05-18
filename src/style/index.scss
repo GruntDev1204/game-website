@@ -1,0 +1,148 @@
+@import "./object/object.scss";
+@import "./object/effect.scss";
+@import "./reset.scss";
+@import "./component/header.scss";
+@import "component/content.scss";
+@import "component/footer.scss";
+@import "./mobie/mobie.scss";
+@import "./component/profile.scss";
+@import "./component/form.scss";
+
+.container {
+  margin: 0 auto;
+  padding: 15px 0;
+  max-width: 1400px;
+}
+.fit {
+  @include sizeOption($full-height, $full-width);
+  @include row_center;
+}
+
+a {
+  all: unset;
+}
+
+.menu-container {
+  @include position(2);
+}
+
+.tmp {
+  height: 100%;
+  width: 100%;
+  background-color: #302a2a48;
+  @include position(2);
+}
+.menu-list {
+  @include position(2);
+  @include locationOption((left, 50%), (top, 50%));
+  @include translateOption(-50%, -50%);
+  padding: 10px;
+  height: 700px;
+  width: 700px;
+  background-color: #0c0606;
+}
+
+.profile-card {
+  @include position(2);
+  @include full_size;
+  background-color: #00000048;
+  @include locationOption((left, 0), (top, 0));
+  .fa-xmark {
+    @include position(1);
+    font-size: 20px;
+    @include locationOption((top, 5px), (right, 5px));
+    @include pointer;
+  }
+  .profile-dt {
+    @include sizeOption(500px, $full-width);
+    @include position(2);
+    @include locationOption((left, 50%), (top, 50%));
+    @include translateOption(-50%, -50%);
+    background-color: #000000;
+  }
+}
+
+.list-Prf {
+  @include position(2);
+  font-size: 1.25rem;
+  top: 70px;
+  right: 160px;
+  width: 220px;
+  @include border_option(radius, null, 18px);
+  box-shadow: 0 4px 32px 0 rgba(102, 255, 235, 0.25),
+    0 2px 16px 0 rgba(60, 165, 235, 0.15);
+  background: #111112;
+  @include border_option(null, #66ffebbf, 2px);
+  overflow: hidden;
+  transition: box-shadow 0.3s, border 0.3s, background 0.3s;
+  &:hover {
+    box-shadow: 0 8px 40px 0 rgba(102, 255, 235, 0.45),
+      0 4px 24px 0 rgba(60, 165, 235, 0.18);
+    @include border_option(null, #66ffebbf, 2.5px);
+    background: #18191a;
+  }
+  li:not(:first-child) {
+    @include Margin_option(bottom, 0.08);
+  }
+  li:not(:last-child) {
+    @include border_option(bottom, #66ffebbf, 1px);
+  }
+  li {
+    background: linear-gradient(90deg, #23242a 0%, #18191a 100%);
+    color: #66ffebbf;
+    @include customPadding(18px, 20px, 18px, 20px);
+    width: 100%;
+    text-align: start;
+    @include font-weight(6);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    @include pointer();
+    border: none;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(102, 255, 235, 0.12);
+    &:hover {
+      background: linear-gradient(90deg, #66ffebbf 0%, #23242a 100%);
+      color: #222;
+      box-shadow: 0 4px 16px rgba(102, 255, 235, 0.25);
+    }
+  }
+}
+
+.form-input-search {
+  @include row_center();
+  @include position(2);
+  @include sizeOption(0.38 * $def, 4.5 * $def);
+  @include border_option(radius, null, 0.13 * $def);
+  @include color_custom($color-1, rgba(217, 217, 217, 0.7));
+  top: 0.65 * $def;
+  right: 2.2 * $def;
+  box-shadow: 0 4px 32px 0 rgba(60, 165, 235, 0.4),
+    0 2px 16px 0 rgba(234, 255, 0, 0.5);
+  backdrop-filter: blur(8px);
+  @include border_option(null, transparent, 2px);
+  background-clip: padding-box;
+  transition: box-shadow 0.3s, border 0.3s;
+  &:hover,
+  &:focus-within {
+    box-shadow: 0 8px 40px 0 rgba(60, 165, 235, 0.7),
+      0 4px 24px 0 rgba(0, 255, 200, 0.7);
+    @include border_option(null, $color-2, 2px);
+  }
+  input {
+    @include sizeOption(0.83 * $full-height, $full-width);
+    @include border_option(radius, null, 0.1 * $def);
+    @include font_option(0.17, 0.5);
+    background-color: $bg-2;
+    padding: 5px 10px;
+    color: $color-1;
+    z-index: 9999;
+    top: 50%;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    transition: background 0.3s;
+    &:focus {
+      background-color: lighten($bg-2, 10%);
+    }
+  }
+}
